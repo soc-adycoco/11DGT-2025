@@ -1,7 +1,7 @@
 '''
 Task 2
 by Adrienne Dycoco
-Date: 17/02/25
+Date: 17/02/2025
 Version 1
 '''
 
@@ -15,10 +15,10 @@ Version 1
 print("Welcome to a temperature conversion app!")
 
 # Ask the user to enter the temperature in °C
-celsius = int(input('Please enter a temperature in °C:'))
+temp_in_C = int(input('Please enter the temperature in °C:'))
 
 # Calculate temp in °F
-fahrenheit = celsius*9/5 + 32
+temp_in_F = temp_in_C*9/5 + 32
 
 # Display the answer with both values, e.g. 10°C = 50°F
-print(celsius, "°C =", fahrenheit, "°F")
+print(temp_in_C, "°C =", temp_in_F, "°F")
