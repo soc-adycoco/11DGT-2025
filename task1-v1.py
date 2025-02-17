@@ -1,24 +1,24 @@
 '''
-Task 2
+Task 1
 by Adrienne Dycoco
-Date: 17/02/2025
+Date: 11/02/2025
 Version 1
 '''
 
-# Formula
-# (0°C × 9/5) + 32 = 32°F
-# (0°C × 1.8) + 32 = 32°F
-# (10°C × 1.8) + 32 = 18 + 32 
-# 10°C = 50°F
+# This program will:
+# Display "Kia ora!"
+print("Kia ora!")
 
-# Welcome the user to a temperature conversion app
-print("Welcome to a temperature conversion app!")
+# Ask "What's your name?"
+name = input("What's your name?")
 
-# Ask the user to enter the temperature in °C
-temp_in_C = int(input('Please enter the temperature in °C:'))
+# Display the user's name - (e.g "Sam")
+print("Hi,", name, "!")
 
-# Calculate temp in °F
-temp_in_F = temp_in_C*9/5 + 32
+# Ask the user for their age (e.g "How old are you, Sam?")
+print("How old are you,", name, "?")
+age = int(input("Please enter a number:"))
 
-# Display the answer with both values, e.g. 10°C = 50°F
-print(temp_in_C, "°C =", temp_in_F, "°F")
+# Display "Next year you will be X years old!"
+next_year = age + 1
+print("Next year you'll be", next_year, "years old!")
