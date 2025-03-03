@@ -14,12 +14,12 @@ menu = "What would you like:\n\
 
 answer = int(input(menu))
 if answer == 1:
-print("You look lovely today!")
+  print("You look lovely today!")
 elif answer == 2:
-print("You smell funny.")
+  print("You smell funny.")
 elif answer == 3:
-print("Two wrongs don't make a right. But three lefts do...")
+  print("Two wrongs don't make a right. But three lefts do...")
 elif answer == 4:
-print("The pen is mightier than the sword.")
+  print("The pen is mightier than the sword.")
 elif answer == 9:
-print("Goodbye!!!")
+  print("Goodbye!!!")
