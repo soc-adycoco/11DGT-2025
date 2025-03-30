@@ -34,4 +34,4 @@ elif grade >= 50:
   print("F")
 
 else:
-  print("nter a valid number!")
+  print("Enter a valid number!")
