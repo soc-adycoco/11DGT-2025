@@ -1,0 +1,31 @@
+1.1 Create a computer program
+
+"""
+1.1 Create a Computer Program
+by Adrienne Dycoco
+Date: 29/04/25
+Version 1
+"""
+
+#Setup variables - questions, answers, score
+questions = ["Q1", "Q2", "Q3"]
+answers = ["A1", "A2", "A3"]
+feedback = ["Correct!", "Oops, incorrect!"]
+score = 0
+
+#Ask user for name
+user_name = input("What is your name?")
+print("Welcome", user_name, "to Jakob Neilson's Human-Computer Interface Usability Heuristics!")
+
+#Create function to cycle through questions
+#Ask user questions
+for i in range(len(questions)):
+  user_answer = input(questions[0])
+  if user_answer == answers[]:
+    print(feedback[0])
+
+#Check if user input is equal to answer
+
+#Give feedback
+
+#Show final score
