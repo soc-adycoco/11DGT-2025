@@ -7,25 +7,26 @@ Date: 29/04/25
 Version 1
 """
 
-#Setup variables - questions, answers, score
+#Setup variables and lists for flexibility with adding and taking away questions
 questions = ["Q1", "Q2", "Q3"]
 answers = ["A1", "A2", "A3"]
-feedback = ["Correct!", "Oops, incorrect!"]
-score = 0
+final_score = 0
 
-#Ask user for name
-user_name = input("What is your name?")
+#Welcome user to quiz game
+user_name = input("What is your name?").title()
 print("Welcome", user_name, "to Jakob Neilson's Human-Computer Interface Usability Heuristics!")
 
-#Create function to cycle through questions
-#Ask user questions
+#Cycle through the lists made and ask the user questions from list
 for i in range(len(questions)):
   user_answer = input(questions[0])
-  if user_answer == answers[]:
-    print(feedback[0])
+  #Check if user input is equal to answer and give feedback
+  if user_answer == answers[0]:
+    print("Correct! Next...")
+    score += 1
+  else:
+    print("Oops, incorrect! Next...")
 
-#Check if user input is equal to answer
-
-#Give feedback
-
-#Show final score
+#Calculate score as a percentage and show user their final score
+final_percentage = final_score / len(questions) * 100
+print("Well done, you finished! Let's see your score...")
+print("You got", final_score, "out of", len(questions), "which is", final_percentage, "%!\n Thanks for playing! Hope you had fun :D")
