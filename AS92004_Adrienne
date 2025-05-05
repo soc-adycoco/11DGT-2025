@@ -1,5 +1,3 @@
-1.1 Create a computer program
-
 """
 1.1 Create a Computer Program
 by Adrienne Dycoco
@@ -8,18 +6,56 @@ Version 1
 """
 
 #Setup variables and lists for flexibility with adding and taking away questions
-questions = ["Q1", "Q2", "Q3"]
-answers = ["A1", "A2", "A3"]
+questions = ["1. What is the correct opening tag to make text appear bold?\n a) <bold>\n b) <b>\n c) <strong>\n d) <boldtext>", 
+
+"2. What is the correct closing tag to make text appear italic?\n a) </italic>\n b) </i>\n c) </em>\n d) </italics>", 
+
+"3. Which HTML tag is used to define the main heading on a webpage?\n a) <head>\n b) <heading>\n c) <h1>\n d) <title>",
+
+"4. What is the correct HTML tag for creating a paragraph?\n a) <para>\n b) <text>\n c) <p>\n d) <paragraph>",
+
+"5. To insert a horizontal line across the webpage, which HTML tag should you use?\n a) <line>\n b) <hr>\n c) <horizontal>\n d) <rule>",
+
+"6. What is the correct HTML tag for creating an unordered (bulleted) list?\n a) <list>\n b) <ol>\n c) <ul>\n d) <bulletlist>",
+
+"7. Within an unordered list (<ul>), what tag is used to define each list item?\n a) <item>\n b) <listitem>\n c) <li>\n d) <il>",
+
+"8. What is the correct HTML tag for creating an ordered (numbered) list?\n a) <numbers>\n b) <list>\n c) <ul>\n d) <ol>"
+
+"9. What is the correct HTML tag for inserting an image?\n a) <picture>\n b) <image>\n c) <img>\n d) <src>"
+
+"10. Which attribute is mandatory when using the <img> tag?\n a) alt\n b) title\n c) src\n d) href",
+
+"11. What does the alt attribute in the <img> tag provide?\n a) A larger version of the image when you hover over it.\n b) A link to another\n \n webpage if the image is clicked.\n c) Alternative text for the image if it cannot be displayed.\n d) Alignment of the image on the page.",
+
+"12. What is the correct HTML tag for creating a hyperlink (link to another page)?\n a) <link>\n b) <hyperlink>\n c) <a>\n d) <url>",
+
+"13. Which attribute is used within the <a> tag to specify the URL of the link?\n a) url\n b) link\n c) href\n d) src",
+
+"14. What is the correct HTML tag for the top section of an HTML document, containing metadata?\n a) <body>\n b) <header>\n c) <head>\n d) <top>",
+
+"15. Which HTML tag defines the main content of the HTML document?\n a) <content>\n b) <main>\n c) <section>\n d) <body>",
+
+"16. What is the correct HTML tag for a line break?\n a) <break>\n b) <lb>\n c) <br>\n d) <newline>",
+
+"17. Which HTML tag is used to group related content on a webpage?\n a) <group>\n b) <container>\n c) <div>\n d) <section> (though <div> is more generic)",
+
+"18. What is the correct way to add a comment in HTML?\n a) // This is a comment\n b) /* This is a comment */\n c) <!-- this is a comment --> \n d) # This is a comment",
+
+"19. What does HTML stand for?\n a) Hyper Text Markup Language\n b) High-level Text Machine Language\n c) Hyperlink and Text Management Language\n d) Home Tool Markup Language",
+
+"20. Which of the following is an example of a self-closing tag in HTML?\n a) <p></p>\n b) <a></a>\n c) <img>\n d) <div></div>"]
+answers = ["c", "b", "c", "c", "b", "c", "c", "d", "c", "c", "c", "c", "c", "c", "d", "c", "c", "c", "a", "c"]
 final_score = 0
 
 #Welcome user to quiz game
 user_name = input("What is your name?").title()
-print("Welcome", user_name, "to Jakob Neilson's Human-Computer Interface Usability Heuristics!")
+print("Welcome", user_name, "to an HTML revision quiz!\nPlease pick a letter from the multi-choice options.")
 
 #Cycle through the lists made and ask the user questions from list
 for i in range(len(questions)):
   user_answer = input(questions[0])
-  #Check if user input is equal to answer and give feedback
+  #Check user input is equal to answer and give feedback
   if user_answer == answers[0]:
     print("Correct! Next...")
     score += 1
