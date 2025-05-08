@@ -48,7 +48,7 @@ questions = ["1. What is the correct opening tag to make text appear bold?\n a) 
 answers = ["c", "b", "c", "c", "b", "c", "c", "d", "c", "c", "c", "c", "c", "c", "d", "c", "c", "c", "a", "c"]
 final_score = 0
 
-#Welcome user to quiz game & make the user enter a name
+#Welcome to quiz game & make user enters a name before continuing
 while True:
   user_name = input("What is your name?").title()
   if len(user_name) < 1:
@@ -57,17 +57,17 @@ while True:
     print("Welcome '", user_name, "' to an HTML revision quiz!\nPlease pick a letter from the multi-choice options.")
     break
     
-#Cycle through the lists made and ask the user questions from list
+#Cycle through the questions to ask the user from list
 for i in range(len(questions)):
   user_answer = input(questions[0])
-  #Check user input is equal to answer and give feedback
+  #Check user input and give feedback
   if user_answer == answers[0]:
     print("Correct! Next...")
-    score += 1
+    final_score += 1
   else:
     print("Oops, incorrect! Next...")
 
 #Calculate score as a percentage and show user their final score
-final_percentage = final_score / len(questions) * 100
+score_percentage = final_score / len(questions) * 100
 print("Well done, you finished! Let's see your score...")
-print("You got", final_score, "out of", len(questions), "which is", final_percentage, "%!\nThanks for playing! Hope you had fun :D")
+print("You got", final_score, "out of", len(questions), "which is", score_percentage, "%!\nThanks for playing! Hope you had fun :D")
