@@ -20,13 +20,13 @@ questions = ["1. What is the correct opening tag to make text appear bold?\n a) 
 
 "7. Within an unordered list (<ul>), what tag is used to define each list item?\n a) <item>\n b) <listitem>\n c) <li>\n d) <il>",
 
-"8. What is the correct HTML tag for creating an ordered (numbered) list?\n a) <numbers>\n b) <list>\n c) <ul>\n d) <ol>"
+"8. What is the correct HTML tag for creating an ordered (numbered) list?\n a) <numbers>\n b) <list>\n c) <ul>\n d) <ol>",
 
-"9. What is the correct HTML tag for inserting an image?\n a) <picture>\n b) <image>\n c) <img>\n d) <src>"
+"9. What is the correct HTML tag for inserting an image?\n a) <picture>\n b) <image>\n c) <img>\n d) <src>",
 
 "10. Which attribute is mandatory when using the <img> tag?\n a) alt\n b) title\n c) src\n d) href",
 
-"11. What does the alt attribute in the <img> tag provide?\n a) A larger version of the image when you hover over it.\n b) A link to another\n \n webpage if the image is clicked.\n c) Alternative text for the image if it cannot be displayed.\n d) Alignment of the image on the page.",
+"11. What does the alt attribute in the <img> tag provide?\n a) A larger version of the image when you hover over it.\n b) A link to another webpage if the image is clicked.\n c) Alternative text for the image if it cannot be displayed.\n d) Alignment of the image on the page.",
 
 "12. What is the correct HTML tag for creating a hyperlink (link to another page)?\n a) <link>\n b) <hyperlink>\n c) <a>\n d) <url>",
 
@@ -49,7 +49,7 @@ answers = ["c", "b", "c", "c", "b", "c", "c", "d", "c", "c", "c", "c", "c", "c",
 final_score = 0
 
 #Welcome to quiz game & make user enters a name before continuing
-def play_game:
+def play_game():
   while True:
     user_name = input("What is your name?").title()
     if len(user_name) < 1:
@@ -60,15 +60,30 @@ def play_game:
       
   #Cycle through the questions to ask the user from list
   for i in range(len(questions)):
-    user_answer = input(questions[0]).lower()
+    user_answer = input(questions[i]).lower().strip()
     #Check user input and give feedback
-    if user_answer == answers[0]:
+    if user_answer not in answers:
+      print("Please enter a letter from A-D!")
+    elif user_answer == answers[i]:
       print("Correct! Next...")
       final_score += 1
     else:
-      print("Oops, incorrect! Next...")
-  
+      print("Oops, incorrect! The correct answer was:", answers[i], "\nNext...")
+
   #Calculate score as a percentage and show user their final score
   score_percentage = final_score / len(questions) * 100
   print("Well done, you finished! Let's see your score...")
   print("You got", final_score, "out of", len(questions), "which is", score_percentage, "%!\nThanks for playing! Hope you had fun :D")
+  
+#Gives user the choice if they want to play or not
+while True:
+  confirm_play = input("Hi! Do you want to play an HTML quiz? (yes/no)").lower().strip()
+  if confirm_play == "yes":
+    print("Yay, let's go!")
+    play_game()
+    break
+  elif confirm_play == "no":
+    print("Aw, that's a shame. Have a good day!")
+    break
+  else:
+    print("Please enter a valid input! (yes/no)") 
