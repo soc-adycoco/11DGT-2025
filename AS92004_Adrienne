@@ -60,20 +60,36 @@ def play_game():
       
   #Cycle through the questions to ask the user from list
   for i in range(len(questions)):
-    user_answer = input(questions[i]).lower().strip()
-    #Check user input and give feedback
-    if user_answer not in answers:
-      print("Please enter a letter from A-D!")
-    elif user_answer == answers[i]:
-      print("Correct! Next...")
-      final_score += 1
-    else:
-      print("Oops, incorrect! The correct answer was:", answers[i], "\nNext...")
+    while True:
+      user_answer = input(questions[i]).lower().strip()
+      #Check user input and give feedback
+      if user_answer == answers[i]:
+        print("Correct! Next...")
+        final_score += 1
+        break
+      elif user_answer not in answers:
+        print("Please enter a letter from A-D!")
+      else:
+        print("Oops, incorrect! The correct answer was:", answers[i], "\nNext...")
+        break
 
-  #Calculate score as a percentage and show user their final score
+  #Show user their final score as both numbers and percentage
   score_percentage = final_score / len(questions) * 100
   print("Well done, you finished! Let's see your score...")
-  print("You got", final_score, "out of", len(questions), "which is", score_percentage, "%!\nThanks for playing! Hope you had fun :D")
+  print("You got", final_score, "out of", len(questions), "which is", score_percentage, "%!\nThanks for playing!")
+  
+  #Lets the user play quiz again
+  while True:
+    play_again = input("Do you want to play again? (yes/no)").lower().strip()
+    if play_again == "yes":
+      print("Okay, once more!")
+      play_game()
+      break
+    elif play_again == "no":
+      print("If you say so. Hope you had fun! :D")
+      break
+    else:
+      print("Please enter a valid input! (yes/no)")
   
 #Gives user the choice if they want to play or not
 while True:
