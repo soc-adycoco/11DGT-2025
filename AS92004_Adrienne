@@ -5,80 +5,97 @@ Date: 29/04/25
 Version 1
 """
 
-#Setup variables and lists for flexibility with adding and taking away questions
-questions = ["1. What is the correct opening tag to make text appear bold?\n a) <bold>\n b) <b>\n c) <strong>\n d) <boldtext>", 
+# Setup variables and question/answer lists
+questions = ["1. What is the correct opening tag to make text appear bold?\n a) <bold>\n b) <b>\n c) <strong>\n d) <boldtext>",
 
-"2. What is the correct closing tag to make text appear italic?\n a) </italic>\n b) </i>\n c) </em>\n d) </italics>", 
+"2. What is the correct closing tag to make text appear italic?\n a) </italic>\n b) </i>\n c) </em>\n d) </italics>",
 
 "3. Which HTML tag is used to define the main heading on a webpage?\n a) <head>\n b) <heading>\n c) <h1>\n d) <title>",
 
 "4. What is the correct HTML tag for creating a paragraph?\n a) <para>\n b) <text>\n c) <p>\n d) <paragraph>",
 
-"5. To insert a horizontal line across the webpage, which HTML tag should you use?\n a) <line>\n b) <hr>\n c) <horizontal>\n d) <rule>",
+"5. Within an unordered list (<ul>), what tag is used to define each list item?\n a) <item>\n b) <listitem>\n c) <li>\n d) <il>",
 
-"6. What is the correct HTML tag for creating an unordered (bulleted) list?\n a) <list>\n b) <ol>\n c) <ul>\n d) <bulletlist>",
+"6. What is the correct HTML tag for creating an ordered (numbered) list?\n a) <numbers>\n b) <list>\n c) <ul>\n d) <ol>",
 
-"7. Within an unordered list (<ul>), what tag is used to define each list item?\n a) <item>\n b) <listitem>\n c) <li>\n d) <il>",
+"7. What is the correct HTML tag for inserting an image?\n a) <picture>\n b) <image>\n c) <img>\n d) <src>",
 
-"8. What is the correct HTML tag for creating an ordered (numbered) list?\n a) <numbers>\n b) <list>\n c) <ul>\n d) <ol>",
+"8. Which HTML tag defines the main content of the HTML document?\n a) <content>\n b) <main>\n c) <section>\n d) <body>",
 
-"9. What is the correct HTML tag for inserting an image?\n a) <picture>\n b) <image>\n c) <img>\n d) <src>",
+"9. What is the correct way to add a comment in HTML?\n a) // This is a comment\n b) /* This is a comment */\n c) <!-- this is a comment --> \n d) # This is a comment",
 
-"10. Which attribute is mandatory when using the <img> tag?\n a) alt\n b) title\n c) src\n d) href",
+"10. What does HTML stand for?\n a) Hyper Text Markup Language\n b) High-level Text Machine Language\n c) Hyperlink and Text Management Language\n d) Home Tool Markup Language"]
 
-"11. What does the alt attribute in the <img> tag provide?\n a) A larger version of the image when you hover over it.\n b) A link to another webpage if the image is clicked.\n c) Alternative text for the image if it cannot be displayed.\n d) Alignment of the image on the page.",
+input_answers = ["c", 
+"b", 
+"c",
+"c",
+"c",
+"d",
+"c",
+"d",
+"c",
+"a"]
 
-"12. What is the correct HTML tag for creating a hyperlink (link to another page)?\n a) <link>\n b) <hyperlink>\n c) <a>\n d) <url>",
+display_answers = ["c) <strong>", 
+"b) </i>", 
+"c) <h1>", 
+"c) <p>", 
+"c) <li>", 
+"d) <ol>", 
+"c) <img>", 
+"d) <body>",
+"c) <!-- this is a comment -->",
+"a) Hyper Text Markup Language"]
 
-"13. Which attribute is used within the <a> tag to specify the URL of the link?\n a) url\n b) link\n c) href\n d) src",
-
-"14. What is the correct HTML tag for the top section of an HTML document, containing metadata?\n a) <body>\n b) <header>\n c) <head>\n d) <top>",
-
-"15. Which HTML tag defines the main content of the HTML document?\n a) <content>\n b) <main>\n c) <section>\n d) <body>",
-
-"16. What is the correct HTML tag for a line break?\n a) <break>\n b) <lb>\n c) <br>\n d) <newline>",
-
-"17. Which HTML tag is used to group related content on a webpage?\n a) <group>\n b) <container>\n c) <div>\n d) <section> (though <div> is more generic)",
-
-"18. What is the correct way to add a comment in HTML?\n a) // This is a comment\n b) /* This is a comment */\n c) <!-- this is a comment --> \n d) # This is a comment",
-
-"19. What does HTML stand for?\n a) Hyper Text Markup Language\n b) High-level Text Machine Language\n c) Hyperlink and Text Management Language\n d) Home Tool Markup Language",
-
-"20. Which of the following is an example of a self-closing tag in HTML?\n a) <p></p>\n b) <a></a>\n c) <img>\n d) <div></div>"]
-answers = ["c", "b", "c", "c", "b", "c", "c", "d", "c", "c", "c", "c", "c", "c", "d", "c", "c", "c", "a", "c"]
-final_score = 0
-
-#Welcome to quiz game & make user enters a name before continuing
+MIN_QUESTIONS = 5
+MAX_QUESTIONS = len(questions)
+  
+# Welcome to quiz game & makes user enters a name before continuing
 def play_game():
   while True:
     user_name = input("What is your name?").title()
     if len(user_name) < 1 or len(user_name) > 30:
       print("Please enter a valid name!")
     else:
-      print("Welcome '", user_name, "' to an HTML revision quiz!\nPlease pick a letter from the multi-choice options.")
+      print("Welcome", user_name, "to an HTML revision quiz!\nPlease pick a letter from the multi-choice options.")
       break
-      
-  #Cycle through the questions to ask the user from list
-  for i in range(len(questions)):
+    
+  # Lets the user choose the amount of questions & checks if the amount is reasonable
+  while True:
+    try:
+      num_questions = int(input("How many questions do you want?"))
+      if num_questions < 5 or num_questions > 20:
+        print("Please enter a valid amount of questions!")
+      else:
+        print("Alright,", num_questions, "it is!")
+        break
+    except ValueError:
+      print("Error - please enter a number!")
+ 
+ 
+  # Cycle through the questions to ask the user from list
+  final_score = 0
+  for i in range(num_questions):
     while True:
       user_answer = input(questions[i]).lower().strip()
-      #Check user input and give feedback
-      if user_answer == answers[i]:
+      # Check user input and give feedback
+      if user_answer == input_answers[i]:
         print("Correct! Next...")
         final_score += 1
         break
-      elif user_answer not in answers:
+      elif user_answer not in input_answers:
         print("Please enter A, B, C, or D!")
       else:
-        print("Oops, incorrect! The correct answer was:", answers[i], "\nNext...")
+        print("Oops, incorrect! The correct answer was:", display_answers[i], "\nNext...")
         break
 
-  #Show user their final score as both numbers and percentage
+  # Show user their final score as both numbers and percentage
   score_percentage = final_score / len(questions) * 100
   print("Well done, you finished! Let's see your score...")
   print("You got", final_score, "out of", len(questions), "which is", score_percentage, "%!\nThanks for playing!")
   
-  #Lets the user play quiz again
+  # Lets the user play quiz again
   while True:
     play_again = input("Do you want to play again? (yes/no)").lower().strip()
     if play_again == "yes":
@@ -91,7 +108,7 @@ def play_game():
     else:
       print("Please enter a valid input! (yes/no)")
   
-#Gives user the choice if they want to play or not
+# Gives user the choice if they want to play or not
 while True:
   confirm_play = input("Hi! Do you want to play an HTML quiz? (yes/no)").lower().strip()
   if confirm_play == "yes":
@@ -102,4 +119,5 @@ while True:
     print("Aw, that's a shame. Have a good day!")
     break
   else:
-    print("Please enter a valid input! (yes/no)") 
+    print("Please enter a valid input! (yes/no)")
+    
