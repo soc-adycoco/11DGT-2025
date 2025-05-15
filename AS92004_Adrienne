@@ -52,8 +52,8 @@ final_score = 0
 def play_game():
   while True:
     user_name = input("What is your name?").title()
-    if len(user_name) < 1:
-      print("Please enter a name!")
+    if len(user_name) < 1 or len(user_name) > 30:
+      print("Please enter a valid name!")
     else:
       print("Welcome '", user_name, "' to an HTML revision quiz!\nPlease pick a letter from the multi-choice options.")
       break
@@ -68,7 +68,7 @@ def play_game():
         final_score += 1
         break
       elif user_answer not in answers:
-        print("Please enter a letter from A-D!")
+        print("Please enter A, B, C, or D!")
       else:
         print("Oops, incorrect! The correct answer was:", answers[i], "\nNext...")
         break
