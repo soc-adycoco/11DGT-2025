@@ -53,7 +53,7 @@ MAX_QUESTIONS = len(questions)
 MIN_QUESTIONS_STR = str(MIN_QUESTIONS)
 MAX_QUESTIONS_STR = str(MAX_QUESTIONS)
 
-# Welcome to quiz game & makes user enters a name before continuing
+# Welcome to quiz & makes the user enter a name before continuing
 
 
 def play_game():
@@ -66,7 +66,7 @@ def play_game():
             print("Welcome", user_name, "to an HTML revision quiz! \nPlease pick a letter from the multi-choice options.")
             break
 
-    # Lets the user choose a reasonable amount of questions
+    # Lets the user choose an amount of questions from MIN-MAX
     while True:
         try:
             num_questions = int(input("How many questions do you want?"))
@@ -78,7 +78,7 @@ def play_game():
         except ValueError:
             print("Error - please enter a number!")
 
-    # Cycle through the questions to ask the user from list
+    # Cycle through the questions from list to ask the user
     for i in range(num_questions):
         while True:
             user_answer = input(questions[i]).lower().strip()
@@ -94,7 +94,7 @@ def play_game():
                       "\nNext...")
                 break
 
-    # Show user their final score as both numbers and percentage
+    # Show user their final score as both numbers & percentage
     percent = final_score / num_questions * 100
     score_percentage = round(percent, 1)
     print("Well done, you finished! Let's see your score...")
